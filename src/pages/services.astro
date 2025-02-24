@@ -1,0 +1,293 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    id: 'employee-relations',
+    title: 'Employee Relations',
+    description: 'Offering flexible, on-demand support to organisations facing people-related challenges.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>`,
+    features: [
+      'Disciplinary actions handling',
+      'Grievance resolution',
+      'Performance improvement plans',
+      'Absence management',
+      'Redundancy processes'
+    ]
+  },
+  {
+    id: 'strategic-people-plans',
+    title: 'Strategic People Plans',
+    description: 'Creating customized HR strategies that align with your business objectives and drive organizational success.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+    </svg>`,
+    features: [
+      'Employee lifecycle management',
+      'Engagement strategies',
+      'Performance frameworks',
+      'Succession planning',
+      'Talent development'
+    ]
+  },
+  {
+    id: 'career-pathways',
+    title: 'Career Pathways',
+    description: 'Designing clear advancement routes that motivate employees and support organizational growth.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+    </svg>`,
+    features: [
+      'Competency frameworks',
+      'Training roadmaps',
+      'Skills assessment',
+      'Development planning',
+      'Cross-departmental opportunities'
+    ]
+  },
+  {
+    id: 'culture-values',
+    title: 'Culture & Values',
+    description: 'Embedding meaningful values into your organization\'s DNA through strategic implementation.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+    </svg>`,
+    features: [
+      'Values integration',
+      'Culture assessment',
+      'Leadership alignment',
+      'Employee engagement',
+      'Change management'
+    ]
+  },
+  {
+    id: 'hr-department',
+    title: 'Building HR Department',
+    description: 'Supporting growing businesses in establishing efficient, scalable HR functions.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+    </svg>`,
+    features: [
+      'Department structure design',
+      'Policy development',
+      'Process implementation',
+      'Compliance frameworks',
+      'Team recruitment & training'
+    ]
+  }
+];
+---
+
+<Layout title="HR Services | KT People" description="Comprehensive HR consulting services to unlock your team's potential">
+  <Header />
+  
+  <main>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+      <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 aspect-square bg-gradient-to-br from-primary/5 to-primary/10 rounded-full blur-3xl"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-title">
+            Transform Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">HR Strategy</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-gray-600 mb-8 animate-fade-in">
+            Comprehensive HR solutions tailored to elevate your organization. Expert guidance for every stage of your business growth.
+          </p>
+          <div class="flex flex-wrap gap-4 animate-fade-in">
+            <a 
+              href="#services" 
+              class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              Explore Services
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+            <a 
+              href="#contact" 
+              class="inline-flex items-center px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-lg transition-all duration-300"
+            >
+              Get in Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
+          <p class="text-lg text-gray-600">
+            Comprehensive HR solutions designed to help your organization thrive
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <div 
+              class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20 relative overflow-hidden animate-card"
+              style={`animation-delay: ${index * 100}ms`}
+            >
+              <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-primary/10 rounded-bl-full transform translate-x-8 -translate-y-8"></div>
+              <div class="relative">
+                <div class="text-primary p-3 bg-primary/10 rounded-xl inline-block mb-4" set:html={service.icon} />
+                <h3 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p class="text-gray-600 mb-4">{service.description}</p>
+                <ul class="space-y-2 mb-6">
+                  {service.features.slice(0, 3).map(feature => (
+                    <li class="flex items-center gap-2 text-gray-600">
+                      <svg class="w-4 h-4 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <a 
+                  href={`#${service.id}`}
+                  class="inline-flex items-center text-primary font-medium hover:text-primary-dark group-hover:translate-x-2 transition-all duration-300"
+                >
+                  Learn more
+                  <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Service Sections -->
+    {services.map(service => (
+      <section id={service.id} class="py-20 scroll-mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+            <div class="grid lg:grid-cols-2 gap-12">
+              <div>
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="text-primary p-3 bg-primary/10 rounded-xl" set:html={service.icon} />
+                  <h2 class="text-3xl font-bold text-gray-900">{service.title}</h2>
+                </div>
+                <p class="text-lg text-gray-600 mb-8">{service.description}</p>
+                <ul class="space-y-4">
+                  {service.features.map(feature => (
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span class="text-gray-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Benefits</h3>
+                <ul class="space-y-4">
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <span class="text-gray-600">Tailored solutions for your specific needs</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <span class="text-gray-600">Expert guidance and support</span>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <span class="text-gray-600">Measurable results and outcomes</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- CTA Section -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-primary to-primary-light rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+          <div class="relative z-10 text-center max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-6">
+              Ready to Transform Your HR Strategy?
+            </h2>
+            <p class="text-white/90 text-lg mb-8">
+              Let's discuss how our services can help your organization thrive
+            </p>
+            <a 
+              href="#contact" 
+              class="inline-block bg-white text-primary hover:bg-gray-50 font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              Get Started Today
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .animate-title {
+    opacity: 0;
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+  }
+
+  .animate-card {
+    opacity: 0;
+    animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes cardAppear {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+</style> 

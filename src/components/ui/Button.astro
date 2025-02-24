@@ -1,0 +1,31 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary';
+  size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit';
+  disabled?: boolean;
+  class?: string;
+}
+
+const { 
+  variant = 'primary',
+  size = 'md',
+  type = 'button',
+  disabled = false,
+  class: className = ''
+} = Astro.props;
+---
+
+<button
+  type={type}
+  disabled={disabled}
+  class:list={[
+    'transition-all duration-300 rounded-lg font-semibold',
+    variant === 'primary' && 'bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white',
+    size === 'md' && 'px-6 py-3',
+    disabled && 'opacity-50 cursor-not-allowed',
+    className
+  ]}
+>
+  <slot />
+</button> 

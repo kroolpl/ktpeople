@@ -1,0 +1,240 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import founderPic from '../assets/images/KT_founder.jpeg';
+import wllcLogo from '../assets/images/wllc-logo.webp';
+import cipdLogo from '../assets/images/CIPD-VWEX-Logo.png';
+
+const values = [
+  {
+    title: "Honest & Direct",
+    description: "Clear, straightforward communication that gets to the heart of your HR needs.",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+    </svg>`
+  },
+  {
+    title: "Ethical Approach",
+    description: "Committed to maintaining the highest professional standards with integrity.",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+    </svg>`
+  },
+  {
+    title: "Solution-Focused",
+    description: "Dedicated to finding the right answers and delivering practical solutions.",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>`
+  }
+];
+---
+
+<Layout title="About KT People | HR Consultant" description="Meet Karen Tappin - Your trusted HR consultant providing expert HR solutions with a personal touch">
+  <Header />
+  
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative py-20">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-title">
+              Meet <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">Karen Tappin</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-8 animate-fade-in">
+              Your dedicated HR consultant bringing expertise, integrity, and a personal touch to your organization's human resources needs.
+            </p>
+          </div>
+          <div class="relative">
+            <div class="max-w-md mx-auto animate-fade-in">
+              <Image
+                src={founderPic}
+                alt="Karen Tappin - Founder of KT People"
+                class="w-64 h-64 mx-auto object-cover rounded-full border-4 border-white shadow-xl hover:scale-105 hover:shadow-2xl transition-all duration-500 hover:border-primary/20 founder-image"
+                width={500}
+                height={500}
+                quality={90}
+              />
+              <div class="text-center mt-6">
+                <p class="text-xl font-semibold text-gray-900">Founder of KT People</p>
+                <p class="text-gray-600">Independent HR Consultant</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl font-bold text-gray-900 mb-8">Why Choose KT People?</h2>
+          <div class="prose prose-lg text-gray-600">
+            <p>
+              If you're seeking an HR Consultant with deep expertise in Employee Relations, 
+              Engagement, and HR Transformation Projects, you're in the right place. I specialize 
+              in bringing tangible value to organizations while improving employee retention and 
+              workplace culture.
+            </p>
+            <p>
+              As the founder of KT People, I provide comprehensive HR support for SMEs and 
+              start-ups. Whether you lack an internal HR department or need additional support 
+              with transformation projects, I'm here to help business owners and managers 
+              navigate their HR challenges effectively.
+            </p>
+          </div>
+        </div>
+
+        <!-- Values -->
+        <div class="grid md:grid-cols-3 gap-8 mt-16">
+          {values.map((value, index) => (
+            <div 
+              class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 animate-card"
+              style={`animation-delay: ${index * 100}ms`}
+            >
+              <div class="text-primary mb-4" set:html={value.icon} />
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">{value.title}</h3>
+              <p class="text-gray-600">{value.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Location & Availability -->
+        <div class="mt-20 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-8">
+          <div class="flex items-start gap-4">
+            <div class="text-primary">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Location & Availability</h3>
+              <p class="text-gray-600">
+                Based in Middlesex/Surrey, providing both in-person and remote HR consultancy 
+                services across the UK. Flexible scheduling to meet your organization's needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section class="py-20 bg-gradient-to-b from-white to-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">Professional Memberships</h2>
+          <p class="text-lg text-gray-600">Proud member of leading professional bodies</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-12 items-center max-w-2xl mx-auto">
+          <div class="group bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+            <Image
+              src={wllcLogo}
+              alt="West London Chamber of Commerce Logo"
+              class="h-20 w-auto mx-auto object-contain hover:scale-105 transition-transform duration-300"
+              width={200}
+              height={80}
+            />
+            <p class="text-center mt-4 text-gray-600 font-medium">
+              West London Chamber of Commerce
+            </p>
+          </div>
+          
+          <div class="group bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300">
+            <Image
+              src={cipdLogo}
+              alt="The Chartered Institute of Personnel Development (CIPD) Logo"
+              class="h-20 w-auto mx-auto object-contain hover:scale-105 transition-transform duration-300"
+              width={200}
+              height={80}
+            />
+            <p class="text-center mt-4 text-gray-600 font-medium">
+              The Chartered Institute of Personnel Development
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-b from-white to-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gradient-to-br from-primary to-primary-light rounded-2xl p-8 md:p-12 relative overflow-hidden">
+          <div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+          <div class="relative z-10 text-center max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-6">
+              Ready to Transform Your HR Approach?
+            </h2>
+            <p class="text-white/90 text-lg mb-8">
+              Let's discuss how I can help your organization thrive with expert HR solutions
+            </p>
+            <a 
+              href="/contact" 
+              class="inline-block bg-white text-primary hover:bg-gray-50 font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            >
+              Get in Touch
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .animate-title {
+    opacity: 0;
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+  }
+
+  .animate-card {
+    opacity: 0;
+    animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes cardAppear {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .founder-image {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+</style> 

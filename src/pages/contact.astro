@@ -1,0 +1,252 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const contactMethods = [
+  {
+    title: "Email",
+    value: "karen@ktpeople.co.uk",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+    </svg>`,
+    href: "mailto:karen@ktpeople.co.uk"
+  },
+  {
+    title: "LinkedIn",
+    value: "Connect on LinkedIn",
+    icon: `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+    </svg>`,
+    href: "https://www.linkedin.com/in/karen-tappin/"
+  },
+  {
+    title: "Location",
+    value: "Middlesex/Surrey, UK",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>`,
+    href: null
+  }
+];
+---
+
+<Layout title="Contact KT People | HR Consultant" description="Get in touch with KT People for expert HR consulting services">
+  <Header />
+  
+  <main class="pt-16">
+    <!-- Hero Section with Decorative Elements -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+      <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-1/2 -right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-1/4 -left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="py-20 text-center">
+          <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 animate-title">
+            Let's Start a <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-light">Conversation</span>
+          </h1>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in">
+            Ready to transform your HR strategy? Get in touch to discuss how we can help your organization thrive.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section with Split Layout -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="lg:grid lg:grid-cols-2">
+            <!-- Contact Info Side -->
+            <div class="bg-gradient-to-br from-primary to-primary-light p-12 text-white relative overflow-hidden">
+              <div class="absolute inset-0 bg-primary/10 mix-blend-overlay"></div>
+              <div class="relative">
+                <h2 class="text-2xl font-bold mb-8">Get in Touch</h2>
+                <div class="space-y-8">
+                  {contactMethods.map(method => (
+                    <div class="flex items-start gap-4 group">
+                      <div class="p-2 bg-white/10 rounded-lg">
+                        <div set:html={method.icon} />
+                      </div>
+                      <div>
+                        <h3 class="font-semibold">{method.title}</h3>
+                        {method.href ? (
+                          <a 
+                            href={method.href}
+                            class="text-white/90 hover:text-white group-hover:underline"
+                            target={method.href.startsWith('http') ? '_blank' : undefined}
+                            rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          >
+                            {method.value}
+                          </a>
+                        ) : (
+                          <p class="text-white/90">{method.value}</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div class="mt-12 p-6 bg-white/5 backdrop-blur-sm rounded-xl">
+                  <h3 class="font-semibold mb-2">Office Hours</h3>
+                  <p class="text-white/90">
+                    Monday - Friday: 9:00 AM - 5:00 PM<br />
+                    Weekend: By appointment
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Form Side -->
+            <div class="p-12">
+              <h2 class="text-2xl font-bold text-gray-900 mb-8">Send a Message</h2>
+              <form class="space-y-6" id="contact-form">
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="space-y-2">
+                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                </div>
+                <div class="space-y-2">
+                  <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    required
+                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    placeholder="How can we help?"
+                  />
+                </div>
+                <div class="space-y-2">
+                  <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows="5"
+                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    placeholder="Your message..."
+                  ></textarea>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    id="submit-button"
+                    class="w-full bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  >
+                    Send Message
+                  </button>
+                </div>
+                <div id="error-message" class="hidden text-red-500 text-sm"></div>
+                <div id="success-message" class="hidden text-green-500 text-sm"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .animate-title {
+    opacity: 0;
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+  }
+
+  .animate-slide-right {
+    opacity: 0;
+    animation: slideRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-left {
+    opacity: 0;
+    animation: slideLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideRight {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideLeft {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+  const errorMessage = document.getElementById('error-message');
+  const successMessage = document.getElementById('success-message');
+  const contactForm = form as HTMLFormElement;
+  let isSubmitting = false;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    
+    try {
+      isSubmitting = true;
+      submitButton.textContent = 'Sending...';
+      submitButton.disabled = true;
+      
+      // Add form submission logic here
+      
+      successMessage!.textContent = 'Message sent successfully! We\'ll get back to you soon.';
+      successMessage!.classList.remove('hidden');
+      errorMessage!.classList.add('hidden');
+      contactForm.reset();
+      
+    } catch (error) {
+      errorMessage!.textContent = 'An error occurred. Please try again.';
+      errorMessage!.classList.remove('hidden');
+      successMessage!.classList.add('hidden');
+    } finally {
+      isSubmitting = false;
+      submitButton.textContent = 'Send Message';
+      submitButton.disabled = false;
+    }
+  });
+</script> 

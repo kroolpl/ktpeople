@@ -1,0 +1,367 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import sarahImg from '../assets/images/testimonials/sarah.jpg';
+import michaelImg from '../assets/images/testimonials/michael.jpg';
+import emmaImg from '../assets/images/testimonials/emma.jpg';
+
+const handleSubmit = (e: SubmitEvent) => {
+  e.preventDefault();
+  // Add form handling logic here
+};
+
+const testimonials = [
+  {
+    name: "Sarah Thompson",
+    role: "CEO, TechStart Inc.",
+    image: sarahImg,
+    content: "KT People transformed our HR processes completely. Their strategic approach and deep expertise helped us build a strong, engaged team during our rapid growth phase.",
+  },
+  {
+    name: "Michael Chen",
+    role: "HR Director, Global Solutions",
+    image: michaelImg,
+    content: "The level of personalization and attention to detail in their service is outstanding. They didn't just provide solutions; they helped us build a sustainable HR framework.",
+  },
+  {
+    name: "Emma Roberts",
+    role: "Operations Manager, Innovate Ltd",
+    image: emmaImg,
+    content: "Working with KT People has been transformative for our company culture. Their guidance in implementing our values and career development programs has been invaluable.",
+  }
+];
+---
+
+<Layout title="Independent HR Consultant | Fractional HR Support">
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent"></div>
+    <div class="max-w-7xl mx-auto relative">
+      <div class="text-center">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-title">
+          Keeping the <span class="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary-light">Human</span> Element in Human Resources
+        </h1>
+        <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-fade-in">
+          Professional HR consulting services tailored to your business needs. Supporting your growth with expert fractional HR solutions.
+        </p>
+        <a href="#contact" class="inline-block bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 animate-fade-in hover:scale-105 hover:shadow-lg">
+          Get Started
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center text-gray-900 mb-4">Our Services</h2>
+      <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Unlock your team's potential with expert HR solutions tailored to your business needs</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          {
+            title: "Employee Relations",
+            description: "On-demand support for people-related challenges, from performance management to conflict resolution.",
+            icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>`
+          },
+          {
+            title: "Strategic People Plans",
+            description: "Custom HR strategies aligned with your business goals, enhancing engagement throughout the employee lifecycle.",
+            icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>`
+          },
+          {
+            title: "Culture & Values",
+            description: "Transform your company culture from words to action, embedding values into every aspect of your business.",
+            icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>`
+          }
+        ].map((service, index) => (
+          <div 
+            class="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20 relative overflow-hidden"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/5 to-primary/10 rounded-bl-full transform translate-x-8 -translate-y-8"></div>
+            <div class="relative">
+              <div class="text-primary mb-4" set:html={service.icon} />
+              <h3 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">
+                {service.title}
+              </h3>
+              <p class="text-gray-600">{service.description}</p>
+              <a 
+                href={`/services#${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                class="inline-flex items-center mt-4 text-primary font-medium hover:text-primary-dark transition-colors"
+              >
+                Learn more
+                <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div class="text-center mt-12">
+        <a 
+          href="/services" 
+          class="inline-flex items-center px-6 py-3 border border-primary text-primary hover:bg-primary hover:text-white rounded-lg transition-all duration-300 font-medium"
+        >
+          View All Services
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="animate-slide-right">
+          <h2 class="text-3xl font-bold text-gray-900 mb-6">About Us</h2>
+          <p class="text-gray-600 mb-4">
+            With years of experience in human resources management, we provide expert guidance and support to businesses of all sizes.
+          </p>
+          <p class="text-gray-600">
+            Our approach focuses on maintaining the human element in HR while delivering professional, efficient solutions that drive business success.
+          </p>
+        </div>
+        <div class="bg-gradient-to-br from-primary/10 to-primary/5 p-8 rounded-lg shadow-lg animate-slide-left">
+          <h3 class="text-xl font-semibold text-primary mb-4">Why Choose Us?</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center transform hover:translate-x-2 transition-transform duration-300">
+              <svg class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Personalized Approach
+            </li>
+            <li class="flex items-center transform hover:translate-x-2 transition-transform duration-300">
+              <svg class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Extensive Experience
+            </li>
+            <li class="flex items-center transform hover:translate-x-2 transition-transform duration-300">
+              <svg class="h-5 w-5 text-primary mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              Results-Driven Solutions
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+        <p class="text-lg text-gray-600">
+          Hear from organizations we've helped transform their HR practices
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {testimonials.map((testimonial, index) => (
+          <div 
+            class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative animate-card"
+            style={`animation-delay: ${index * 100}ms`}
+          >
+            <div class="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/5 to-primary/10 rounded-bl-full transform translate-x-6 -translate-y-6"></div>
+            
+            <div class="relative">
+              <svg class="w-10 h-10 text-primary/20 mb-4" fill="currentColor" viewBox="0 0 32 32">
+                <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+              </svg>
+              
+              <p class="text-gray-600 mb-6">"{testimonial.content}"</p>
+              
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary/10">
+                  <Image
+                    src={testimonial.image}
+                    alt={`Photo of ${testimonial.name}`}
+                    width={48}
+                    height={48}
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-900">{testimonial.name}</h3>
+                  <p class="text-sm text-gray-600">{testimonial.role}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Stats -->
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+        {[
+          { number: "95%", label: "Client Satisfaction" },
+          { number: "200+", label: "Projects Completed" },
+          { number: "15+", label: "Years Experience" },
+          { number: "50+", label: "Active Clients" }
+        ].map(stat => (
+          <div class="text-center">
+            <div class="text-4xl font-bold text-primary mb-2">{stat.number}</div>
+            <div class="text-gray-600">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent"></div>
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 aspect-square bg-gradient-to-br from-primary/5 to-primary/10 rounded-full blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Ready to Transform Your HR Strategy?
+            </h2>
+            <p class="text-lg text-gray-600 mb-6">
+              Book a free consultation to discuss how we can help your organization thrive with our expert HR solutions.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a 
+                href="/contact" 
+                class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary to-primary-light hover:from-primary-dark hover:to-primary text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                Book Consultation
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+              <a 
+                href="/services" 
+                class="inline-flex items-center px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold rounded-lg transition-all duration-300"
+              >
+                Explore Services
+              </a>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="aspect-square rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 p-8 flex items-center justify-center">
+              <div class="text-center">
+                <div class="text-primary mb-4">
+                  <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <p class="text-xl font-semibold text-gray-900">Quick Response</p>
+                <p class="text-gray-600">We'll get back to you within 24 hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .animate-title {
+    opacity: 0;
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+  }
+
+  .animate-slide-up {
+    opacity: 0;
+    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.2s;
+  }
+
+  .animate-slide-right {
+    opacity: 0;
+    animation: slideRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-left {
+    opacity: 0;
+    animation: slideLeft 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-card {
+    opacity: 0;
+    animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideRight {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideLeft {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes cardAppear {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+</style>
